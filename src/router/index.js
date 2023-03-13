@@ -8,7 +8,7 @@ import Qualification from '../views/Qualification/index.vue'
 import Contact from '../views/Contact/index.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory("/"),
   routes: [
     {
       path: '/',
