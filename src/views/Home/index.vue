@@ -1,8 +1,11 @@
-<script setup lang="ts">
+<script setup>
   import NavBar from '@/components/NavBar/index.vue'
   import Carousel from '@/components/Carousel/index.vue'
   import ContentCard from '@/components/ContentCard/index.vue'
-  import Footer from '@/components/Footer/index.vue'
+  import FooterBar from '@/components/FooterBar/index.vue'
+  import banner_bg from '@/assets/banner_bg.png'
+  import banner2_bg from '@/assets/banner2_bg.png'
+  import banner3_bg from '@/assets/banner3_bg.png'
   import bg1 from '@/assets/bg1.png'
   import bg2 from '@/assets/bg2.png'
   import bg3 from '@/assets/bg3.png'
@@ -14,6 +17,26 @@
   import icon6 from '@/assets/icon6.png'
   import icon7 from '@/assets/icon7.png'
   const data = {
+    carouselList:[
+      {
+        title:'东旭数字未来',
+        label:'顶层设计能力',
+        type:'center',
+        src:banner_bg
+      },
+      {
+        title:'东旭数字未来',
+        label:'数字化平台建设',
+        type:'center',
+        src:banner2_bg
+      },
+      {
+        title:'东旭数字未来',
+        label:'网络安全能力',
+        type:'center',
+        src:banner3_bg
+      },
+    ],
     ContentCardList:[
       {
         title:'一站式数字化解决方案',
@@ -77,9 +100,9 @@
   
   <div>
     <NavBar />
-    <Carousel />
+    <Carousel :carouselList="data.carouselList"/>
     <ContentCard v-for="item in data.ContentCardList" :content="item" type="homeContent" />
-    <Footer />
+    <FooterBar />
   </div>
 </template>
 

@@ -1,26 +1,13 @@
-<script setup lang="ts">
-import banner_bg from '@/assets/banner_bg.png'
-import bg1 from '@/assets/bg1.png'
-import bg2 from '@/assets/bg2.png'
+<script setup>
+  const props = defineProps({
+    carouselList:{
+      type: Array,
+      required: true
+    }
+  })
 
   const data = {
-    carouselList:[
-      {
-        title:'东旭数字未来',
-        describe:'顶层设计能力',
-        src:banner_bg
-      },
-      {
-        title:'东旭设计能力',
-        describe:'顶层数字未来',
-        src:bg1
-      },
-      {
-        title:'东旭顶层未来',
-        describe:'数字设计能力',
-        src:bg2
-      },
-    ]
+    
   }
   const onChange = () => {
 
@@ -30,10 +17,11 @@ import bg2 from '@/assets/bg2.png'
 <template>
   <div class="Carousel">
     <a-carousel :after-change="onChange">
-      <div class="carousel-box" v-for="item in data.carouselList">
-        <div class="content">
+      <div class="carousel-box" v-for="item in props.carouselList">
+        <div :class="'content-'+item.type">
           <div class="title">{{ item.title }}</div>
-          <div class="describe">{{ item.describe }}</div>
+          <div class="label">{{ item.label }}</div>
+          <div class="describe" v-if="item.describe" v-for="describe in item.describe">{{ describe }}</div>
         </div>
         <!-- <img src="../../assets/bg1.png" alt=""> -->
         <img :src="item.src" alt="">
@@ -48,10 +36,11 @@ import bg2 from '@/assets/bg2.png'
   height: 100%;
   .carousel-box{
     position: relative;
-    display: flex;
+    width: 100%;
+    display: flex !important;
     justify-content: center;
     align-items: center;
-    .content{
+    &>.content-center{
       position: absolute;
       top: 30%;
       display: flex;
@@ -59,30 +48,54 @@ import bg2 from '@/assets/bg2.png'
       justify-content: center;
       align-items: center;
       width: 100%;
-      .title{
-        width: 276px;
-        height: 66px;
+      &>.title{
         font-family: SourceHanSansSC-Bold;
         font-weight: 700;
-        font-size: 46px;
+        font-size: 3rem;
         color: #FFFFFF;
         letter-spacing: 0;
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
       }
-      .describe{
-        width: 528px;
-        height: 96px;
+      &>.label{
         font-family: SourceHanSansSC-Heavy;
         font-weight: 900;
-        font-size: 66px;
+        font-size: 4.5rem;
         color: #FFFFFF;
-        letter-spacing: 22px;
+        letter-spacing: 1.5rem;
         text-align: center;
+      }
+    }
+    &>.content-left{
+      position: absolute;
+      display: flex;
+      flex-flow: column;
+      width: 70%;
+      justify-content: center;
+      &>.title{
+        font-family: SourceHanSansSC-Heavy;
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: #FFFFFF;
+      }
+      &>.label{
+        font-family: SourceHanSansSC-Heavy;
+        font-weight: 900;
+        font-size: 2.1rem;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      &>.describe{
+        font-family: SourceHanSansSC-Bold;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #FFFFFF;
+        line-height: 1.6rem;
       }
     }
     img{
       width: 100%;
-      height: 100%;
+      min-height: 25rem;
+      object-fit: cover;
+      object-position: center center;
     }
   }
 }

@@ -1,19 +1,16 @@
-<script setup lang="ts">
-const props = withDefaults(defineProps<{
-  content?: any
-  type?: string
-}>(), {
+<script setup>
+const props = defineProps({
   content: {},
-  type:'homeContent'
+  type: 'homeContent'
 })
-  console.log('props',props.content);
-  
-  const data = {
-    
-  }
-  const onChange = () => {
+console.log('props', props.content);
 
-  }
+const data = {
+
+}
+const onChange = () => {
+
+}
 </script>
 
 <template>
@@ -30,91 +27,207 @@ const props = withDefaults(defineProps<{
           <div class="describe" v-if="item.describe">{{ item.describe }}</div>
         </div>
       </div>
-      
+
     </div>
     <div class="bg_img"><img :src="props.content.img" alt=""></div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.ContentCard{
-  position: relative;
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  .content-box{
+@media only screen and (max-width: 767px) {}
+
+@media (min-width: 767px) and (max-width: 999px) {
+  .ContentCard{
+    position: relative;
     width: 100%;
-    height: 100%;
-    position: absolute;
+    height: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-flow: column;
-    &>.title{
-      font-family: SourceHanSansSC-Bold;
-      font-weight: 700;
-      font-size: 56px;
-      color: #FFFFFF;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    &>.describeList{
-      font-family: SourceHanSansSC-Regular;
-      font-weight: 400;
-      font-size: 28px;
-      color: #FFFFFF;
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .describeList>div{
-      line-height: 46px;
-    }
-    .funcblock-box{
+    align-self: center;
+    padding: 10rem 0;
+    overflow: hidden;
+    .content-box{
+      width: 100%;
+      height: 100%;
       display: flex;
-      .funcblock{
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
-        width: 200px;
-        height: 186px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        margin-right: 35px;
-        &>.icon img{
-          width: 70px;
-          height: 70px;
-          margin-bottom: 12px;
-        }
-        &>.title{
-          color: #ffffffff;
-          font-size: 20px;
-          font-face: SourceHanSansSC;
-          font-weight: 700;
-          line-height: 150%;
-          letter-spacing: 0;
-          text-align: center;
-        }
-        &>.describe{
-          color: #ffffffff;
-          font-size: 16px;
-          font-face: SourceHanSansSC;
-          font-weight: 400;
-          letter-spacing: 0;
-          text-align: center;
-        }
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      z-index: 2;
+      &>.title{
+        font-family: SourceHanSansSC-Bold;
+        font-weight: 700;
+        font-size: 3.5rem;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 1.25rem;
       }
-      .funcblock:last-child{
-        margin: 0;
+      &>.describeList{
+        font-family: SourceHanSansSC-Regular;
+        font-weight: 400;
+        font-size: 1.75rem;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+      .describeList>div{
+        line-height: 2.8rem;
+      }
+      .funcblock-box{
+        display: flex;
+        .funcblock{
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: center;
+          width: 12.5rem;
+          height: 11.5rem;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 1rem;
+          margin-right: 2.1rem;
+          &>.icon img{
+            width: 4.3rem;
+            height: 4,3rem;
+            margin-bottom: .9rem;
+          }
+          &>.title{
+            color: #ffffffff;
+            font-size: 1.25rem;
+            font-face: SourceHanSansSC;
+            font-weight: 700;
+            line-height: 1.8rem;
+            letter-spacing: 0;
+            text-align: center;
+          }
+          &>.describe{
+            color: #ffffffff;
+            font-size: 1rem;
+            font-face: SourceHanSansSC;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-align: center;
+          }
+        }
+        .funcblock:last-child{
+          margin: 0;
+        }
+        
       }
       
     }
-    
+    .bg_img img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
   }
-  .bg_img img{
+}
+
+@media only screen and (min-width: 1000px) {
+  .ContentCard {
+    position: relative;
     width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 15rem 0;
+    overflow: hidden;
+
+    .content-box {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      z-index: 2;
+
+      &>.title {
+        font-family: SourceHanSansSC-Bold;
+        font-weight: 700;
+        font-size: 3.5rem;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 1.25rem;
+      }
+
+      &>.describeList {
+        font-family: SourceHanSansSC-Regular;
+        font-weight: 400;
+        font-size: 1.75rem;
+        color: #FFFFFF;
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+
+      .describeList>div {
+        line-height: 2.8rem;
+      }
+
+      .funcblock-box {
+        display: flex;
+
+        .funcblock {
+          display: flex;
+          flex-flow: column;
+          align-items: center;
+          justify-content: center;
+          width: 12.5rem;
+          height: 11.5rem;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 1rem;
+          margin-right: 2.1rem;
+
+          &>.icon img {
+            width: 4.3rem;
+            height: 4, 3rem;
+            margin-bottom: .9rem;
+          }
+
+          &>.title {
+            color: #ffffffff;
+            font-size: 1.25rem;
+            font-face: SourceHanSansSC;
+            font-weight: 700;
+            line-height: 1.8rem;
+            letter-spacing: 0;
+            text-align: center;
+          }
+
+          &>.describe {
+            color: #ffffffff;
+            font-size: 1rem;
+            font-face: SourceHanSansSC;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-align: center;
+          }
+        }
+
+        .funcblock:last-child {
+          margin: 0;
+        }
+
+      }
+
+    }
+
+    .bg_img img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
   }
 }
 </style>
