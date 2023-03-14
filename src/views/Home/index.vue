@@ -100,9 +100,20 @@
   
   <div>
     <NavBar />
-    <Carousel :carouselList="data.carouselList"/>
-    <ContentCard v-for="item in data.ContentCardList" :content="item" type="homeContent" />
-    <FooterBar />
+    <full-page ref="fullpage" :options="options" id="fullpage">
+      <div class="section">
+        <Carousel :carouselList="data.carouselList"/>
+      </div>
+      <div class="section" v-for="item in data.ContentCardList">
+        <ContentCard :content="item" type="homeContent" />
+      </div>
+      <div class="section">
+        <FooterBar />
+      </div>
+    </full-page>
+    <!-- <Carousel :carouselList="data.carouselList"/>
+    <ContentCard v-for="item in data.ContentCardList" :content="item" type="homeContent" /> -->
+    <!-- <FooterBar /> -->
   </div>
 </template>
 

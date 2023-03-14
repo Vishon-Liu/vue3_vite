@@ -110,6 +110,65 @@ const tableRef = ref()
 <template>
   <div class="container">
     <NavBar ref="navBarRef" />
+    <!-- <full-page ref="fullpage" :options="options" id="fullpage">
+      <div class="section">
+        <Carousel :carouselList="data.carouselList" />
+      </div>
+      <div class="content">
+        <div class="section">
+          <div class="jsts">
+            <div class="jsts-box">
+              <div class="title">{{ data.jsts.title }}</div>
+              <div class="describe" v-for="describe in data.jsts.describe">{{ describe }}</div>
+              <div class="blockList">
+                <div class="block" v-for="block in data.jsts.blockList">
+                  <img :src="block.icon" alt="">
+                  <div class="title">{{ block.title }}</div>
+                  <div class="block-describe" v-for="block_describe in block.describe">{{ block_describe }}</div>
+                </div>
+              </div>
+            </div>
+            <img :src="data.jsts.img" alt="">
+          </div>
+        </div>
+        <div class="section">
+          <div class="tsgn">
+            <div class="tsgn-box">
+              <div class="title">{{ data.tsgn.title }}</div>
+              <div class="describe" v-for="describe in data.tsgn.describe">{{ describe }}</div>
+              <div class="blockList">
+                <div class="block" v-for="block in data.tsgn.blockList">
+                  <div class="block-box">
+                    <img :src="block.icon" alt="">
+                    <div class="title">{{ block.title }}</div>
+                  </div>
+                  <div class="block-describe" v-for="block_describe in block.describe">{{ block_describe }}</div>
+                </div>
+              </div>
+            </div>
+            <img :src="data.tsgn.img" alt="">
+          </div>
+        </div>
+        <div class="section">
+          <div class="cjtj">
+            <div class="cjtj-box">
+              <div class="title">{{ data.cjtj.title }}</div>
+              <div v-if="data.cjtj.describe" class="describe" v-for="describe in data.cjtj.describe">{{ describe }}</div>
+              <div class="blockList">
+                <div class="block" v-for="block in data.cjtj.blockList">
+                  <div class="title">{{ block.title }}</div>
+                  <img :src="block.icon" alt="">
+                </div>
+              </div>
+            </div>
+            <img :src="data.cjtj.img" alt="">
+          </div>
+        </div>
+      
+      
+      
+    </div>
+    </full-page> -->
     <Carousel :carouselList="data.carouselList" />
     <div class="content">
       <div class="jsts">
@@ -161,15 +220,14 @@ const tableRef = ref()
 </template>
 
 <style lang="less" scoped>
-@media only screen and (max-width: 767px) {}
-
-@media (min-width: 767px) and (max-width: 999px) {
-  .container {
+.container {
     .content {
       .jsts {
         position: relative;
         width: 100%;
-        padding: 3rem 0;
+        height: 100vh;
+        padding: 1vh 0;
+
 
         &>.jsts-box {
           width: 100%;
@@ -184,341 +242,59 @@ const tableRef = ref()
             z-index: 2;
             font-family: SourceHanSansSC-Bold;
             font-weight: 700;
-            font-size: 2.8rem;
+            font-size: 4vh;
             color: #282828;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2vh;
           }
 
           &>.describe {
             z-index: 2;
             font-family: SourceHanSansSC-Regular;
             font-weight: 400;
-            font-size: 1.125rem;
+            font-size: 2vh;
             color: #666666;
             text-align: center;
-            line-height: 2.5rem;
+            line-height: 4vh;
           }
 
           &>.blockList {
             z-index: 2;
-            margin-top: 3.75rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-
-            &>.block {
-              width: 34%;
-              height: 31rem;
-              background: #fff;
-              margin: .7rem;
-              padding: 0 2.5rem;
-              border-radius: 16px;
-              display: flex;
-              flex-flow: column;
-              align-items: center;
-
-              &>img {
-                width: 6.25rem;
-                height: 6.25rem;
-                margin: 3.75rem 0;
-              }
-
-              &>.title {
-                font-family: SourceHanSansSC-Bold;
-                font-weight: 700;
-                font-size: 1.5rem;
-                color: #333333;
-                margin-bottom: 1.25rem;
-              }
-
-              &>.block-describe {
-                font-family: SourceHanSansSC-Regular;
-                font-weight: 400;
-                font-size: 0.9rem;
-                line-height: 1.87rem;
-                color: #666666;
-              }
-            }
-
-            &>.block:hover {
-              background: linear-gradient(180deg, #F2FFFC 0%, #FFFFFF 100%);
-              border: 1px solid #21C68E;
-              box-shadow: 0 6px 16px 0 #9999991a;
-            }
-          }
-        }
-
-        &>img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-      }
-
-      .tsgn {
-        position: relative;
-        width: 100%;
-        padding: 3rem 0;
-
-        &>.tsgn-box {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-flow: column;
-          justify-content: center;
-          align-items: center;
-          z-index: 2;
-
-          &>.title {
-            font-family: SourceHanSansSC-Bold;
-            font-weight: 700;
-            font-size: 2.8rem;
-            color: #FFFFFF;
-            text-align: center;
-            margin-bottom: 0.95rem;
-            z-index: 2;
-          }
-
-          &>.describe {
-            font-family: SourceHanSansSC-Regular;
-            font-weight: 400;
-            font-size: 1.125rem;
-            color: #FFFFFF;
-            text-align: center;
-            line-height: 2, 5rem;
-            z-index: 2;
-          }
-
-          &>.blockList {
-            margin-top: 3.75rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            z-index: 2;
-
-            // align-items: center;
-            &>.block {
-              width: 24rem;
-              height: 16rem;
-              background: #fff;
-              margin: 0.6rem;
-              padding: 2.5rem;
-              border-radius: 1rem;
-              display: flex;
-              flex-flow: column;
-              align-items: center;
-
-              &>.block-box {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                margin-bottom: 2.5rem;
-
-                &>img {
-                  width: 3.75rem;
-                  height: 3.75rem;
-                  margin-right: 1rem;
-                }
-
-                &>.title {
-                  font-family: SourceHanSansSC-Bold;
-                  font-weight: 700;
-                  font-size: 1.5rem;
-                  color: #333333;
-                }
-              }
-
-              &>.block-describe {
-                font-family: SourceHanSansSC-Regular;
-                font-weight: 400;
-                font-size: 0.8rem;
-                line-height: 1.8rem;
-                color: #666666;
-              }
-            }
-
-            &>.block:hover {
-              background: linear-gradient(180deg, #F2FFFC 0%, #FFFFFF 100%);
-              border: 1px solid #21C68E;
-              box-shadow: 0 6px 16px 0 #9999991a;
-            }
-          }
-        }
-
-        &>img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-      }
-
-      .cjtj {
-        position: relative;
-        width: 100%;
-        padding: 3rem 0;
-
-        &>.cjtj-box {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-flow: column;
-          justify-content: center;
-          align-items: center;
-          z-index: 2;
-
-          &>.title {
-            font-family: SourceHanSansSC-Bold;
-            font-weight: 700;
-            font-size: 2.87rem;
-            color: #282828;
-            text-align: center;
-            margin-bottom: 1rem;
-            z-index: 2;
-          }
-
-          &>.blockList {
-            margin-top: 5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 2;
-
-            &>.block {
-              width: 48%;
-              position: relative;
-              margin: 0 0.6rem;
-              border-radius: 1rem;
-              display: flex;
-              flex-flow: column;
-              align-items: center;
-
-              &>img {
-                width: 100%;
-              }
-
-              &>.title {
-                position: absolute;
-                top: 5rem;
-                font-family: SourceHanSansSC-Bold;
-                font-weight: 700;
-                font-size: 2.8rem;
-                color: #FFFFFF;
-                text-align: center;
-                line-height: 2.8rem;
-              }
-
-              &>.block-describe {
-                font-family: SourceHanSansSC-Regular;
-                font-weight: 400;
-                font-size: 0.8rem;
-                line-height: 1.8rem;
-                color: #666666;
-              }
-            }
-          }
-        }
-
-        &>img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .container {
-    .content {
-      .jsts {
-        position: relative;
-        width: 100%;
-        padding: 3rem 0;
-
-        &>.jsts-box {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-flow: column;
-          justify-content: center;
-          align-items: center;
-          z-index: 2;
-
-          &>.title {
-            z-index: 2;
-            font-family: SourceHanSansSC-Bold;
-            font-weight: 700;
-            font-size: 2.8rem;
-            color: #282828;
-            text-align: center;
-            margin-bottom: 1rem;
-          }
-
-          &>.describe {
-            z-index: 2;
-            font-family: SourceHanSansSC-Regular;
-            font-weight: 400;
-            font-size: 1.125rem;
-            color: #666666;
-            text-align: center;
-            line-height: 2.5rem;
-          }
-
-          &>.blockList {
-            z-index: 2;
-            margin-top: 3.75rem;
+            margin-top: 2vh;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             &>.block {
               width: 17.5rem;
-              height: 31rem;
+              height: 35vh;
               background: #fff;
-              margin: .7rem;
-              padding: 0 2.5rem;
+              margin: 2vh;
+              padding: 0 3vh;
               border-radius: 16px;
               display: flex;
               flex-flow: column;
               align-items: center;
 
               &>img {
-                width: 6.25rem;
-                height: 6.25rem;
-                margin: 3.75rem 0;
+                width: 10vh;
+                height: 10vh;
+                margin: 2.5vh 0;
               }
 
               &>.title {
                 font-family: SourceHanSansSC-Bold;
                 font-weight: 700;
-                font-size: 1.5rem;
+                font-size: 2.5vh;
                 color: #333333;
-                margin-bottom: 1.25rem;
+                margin-bottom: 2vh;
               }
 
               &>.block-describe {
                 font-family: SourceHanSansSC-Regular;
                 font-weight: 400;
                 font-size: 0.9rem;
-                line-height: 1.87rem;
+                line-height: 2.5vh;
                 color: #666666;
               }
             }
@@ -721,6 +497,68 @@ const tableRef = ref()
           top: 0;
           left: 0;
           z-index: 1;
+        }
+      }
+    }
+  }
+@media only screen and (max-width: 767px) {}
+
+@media (min-width: 767px) and (max-width: 999px) {
+  .container {
+    .content {
+      .jsts {
+        height: 100vh;
+        .jsts-box .blockList{
+          justify-content: center;
+          flex-wrap: wrap;
+          &>.block{
+            width: 34%;
+          }
+        }
+      }
+
+      .tsgn .tsgn-box .blockList{
+        max-width: unset;
+      }
+
+      .cjtj .cjtj-box .blockList .block{
+        width: 48%;
+        &>img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .container {
+    .content {
+      .jsts .jsts-box .blockList{
+        margin-top: 6vh;
+        justify-content: space-between;
+        flex-wrap: unset;
+        &>.block{
+          width: 17.5rem;
+          height: 100%;
+          &>img{
+            margin: 4.5vh 0;
+          }
+          &>.block-describe{
+            line-height: 3.5vh;
+          }
+        }
+      }
+
+      .tsgn .tsgn-box .blockList{
+        max-width: 80%;
+      }
+
+      .cjtj .cjtj-box .blockList .block{
+        width: unset;
+        &>img{
+          width: 36.7rem;
+          height: 30rem;
         }
       }
     }

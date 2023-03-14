@@ -33,7 +33,6 @@
 <style lang="less" scoped>
 .Carousel{
   width: 100%;
-  height: 100%;
   .carousel-box{
     position: relative;
     width: 100%;
@@ -93,7 +92,7 @@
     }
     img{
       width: 100%;
-      min-height: 25rem;
+      height: 100vh;
       object-fit: cover;
       object-position: center center;
     }

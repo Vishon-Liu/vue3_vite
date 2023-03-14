@@ -110,9 +110,14 @@ import qrcode2 from '@/assets/qrcode2.png'
 <style lang="less" scoped>
 .Footer{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: #F9F9F9;;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
   .footer-box{
+    width: 100%;
     display: flex;
     padding: 3.75rem 0;
     justify-content: center;

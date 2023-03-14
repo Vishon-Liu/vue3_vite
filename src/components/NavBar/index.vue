@@ -104,11 +104,7 @@ const openWebSite = () => {
 </template>
 
 <style lang="less" >
-@media only screen and (max-width: 767px) {
-  
-}
-@media (min-width: 767px) and (max-width: 999px) {
-  .NavBar {
+.NavBar {
     width: 100%;
     position: absolute;
     top: 0;
@@ -136,106 +132,7 @@ const openWebSite = () => {
           font-family: MicrosoftYaHei-Bold;
           font-weight: 700;
           font-size: 1.5rem;
-          color: #FFFFFF;
-          margin-left: .5rem;
-        }
-      }
-
-      .menu-box {
-        flex: 1;
-        display: flex;
-        color: white;
-        padding-left: 6rem;
-
-        .menuItem {
-          flex-wrap: nowrap;
-          flex-shrink: 0;
-          position: relative;
-          display: flex;
-          align-items: center;
-          font-family: MicrosoftYaHei;
-          font-size: 1rem;
-          color: #FFFFFF;
-          margin-right: 3rem;
-
-          .dropdown-btn {
-            display: flex;
-            align-items: center;
-          }
-
-          .icon {
-            margin-left: .7rem;
-            width: 1rem;
-            height: 1rem;
-          }
-        }
-
-        .overlay {
-          background: red;
-        }
-
-        .dropdown-overlay {
-          background: red;
-        }
-      }
-    }
-
-    .btn-group {
-      display: flex;
-      .login .ant-btn.ant-btn-background-ghost {
-        margin-right: 1rem;
-        width: 5rem;
-        height: 38px;
-        border: 1px solid #FFFFFF;
-        border-radius: 6px;
-        font-family: MicrosoftYaHei;
-        font-size: 1rem;
-        color: #FFFFFF;
-        text-align: center;
-      }
-
-      .register .ant-btn-primary {
-        height: 100%;
-        color: transparent;
-        background: #FFFFFF;
-        border-radius: 6px;
-        font-family: MicrosoftYaHei;
-        font-size: 1rem;
-        color: #21C68E;
-      }
-    }
-  }
-}
-@media  only screen and (min-width: 1000px) {
-  .NavBar {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    padding: 1rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 8px 20px 0 #9999991a;
-
-    .navbar-box {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      &>.logo{
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-        &>img {
-          width: 2rem;
-        }
-        &>span{
-          font-family: MicrosoftYaHei-Bold;
-          font-weight: 700;
-          font-size: 1.5rem;
-          color: #FFFFFF;
+          color: #f2f2f2;
           margin-left: .5rem;
         }
       }
@@ -302,6 +199,24 @@ const openWebSite = () => {
         font-size: 1rem;
         color: #21C68E;
       }
+    }
+  }
+@media only screen and (max-width: 767px) {
+  
+}
+@media (min-width: 767px) and (max-width: 999px) {
+  .NavBar .navbar-box .menu-box {
+    padding-left: 6rem;
+    &>.menuItem{
+      margin-right: 3rem;
+    }
+  }
+}
+@media  only screen and (min-width: 1000px) {
+  .NavBar .navbar-box .menu-box {
+    padding-left: 8rem;
+    &>.menuItem{
+      margin-right: 5rem;
     }
   }
 }
